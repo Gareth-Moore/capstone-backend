@@ -8,7 +8,7 @@ const generateToken = (res, userId) => {
 
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     // secure: process.env.NODE_ENV !== "development",
     sameSite: "none",
     domain: "back-for-seconds.onrender.com",
