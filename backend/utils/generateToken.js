@@ -11,6 +11,7 @@ const generateToken = (res, userId) => {
     secure: true,
     // secure: process.env.NODE_ENV !== "development",
     sameSite: "strict",
+    domain: "https://back-for-seconds.onrender.com",
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });
   console.log(userId, "end token");
