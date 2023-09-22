@@ -6,13 +6,17 @@ const generateToken = (res, userId) => {
     expiresIn: "30d",
   });
 
+  const expiryDate = new Date();
+  expiryDate.setMonth(expiryDate.getMonth() + 1);
+
   res.cookie("jwt", token, {
-    httpOnly: true,
-    secure: false,
+    httpOnly: false,
+    path: "/",
+    secure: true,
     // secure: process.env.NODE_ENV !== "development",
     sameSite: "none",
-    domain: "back-for-seconds.onrender.com",
-    maxAge: 30 * 24 * 60 * 60 * 1000,
+    domain: ".onrender.com",
+    expires: expiryDate,
   });
   console.log(userId, "end token");
 };
